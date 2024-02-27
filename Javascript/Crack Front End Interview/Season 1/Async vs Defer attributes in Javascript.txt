@@ -1,0 +1,10 @@
+When you load webpage 2 main things happen
+
+1) HTML Parsing
+2) Execution os scripts - a) Fetching script from network
+			  b) Executing the script tag
+
+In case scripts are dependent on each other we better use defer because async won't guarantee the 
+order of execution of scripts
+
+In case of independent scripts we can use async attribute

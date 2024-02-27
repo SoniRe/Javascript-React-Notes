@@ -1,0 +1,11 @@
+Browser has a Javascript Runtime Environment, Node JS also has this environment
+
+You can create your own Javascript Engine. Just have to follow Echma Script rules
+
+Google's V8 engine is written in low level language C++
+
+JS Engine can use interpretor or compiler which is JIT(Just in time compiler) Compiler.
+It has benefits of both
+
+Memory Heap is constantly in sync with callstack, garbge collector
+Mark-and-Sweep: Garbage Collection Algorithm

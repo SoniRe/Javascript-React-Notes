@@ -1,0 +1,63 @@
+Promise are used to handle async operation in Javascript
+
+const cart = ["shoes", "pants", "kurtas"];
+
+// Both operations createOrder() and proceedToPayment() are asynchronous and dependent on each other
+
+createOrder(cart); // It will return orderId
+
+proceedToPayment(orderId);
+
+// Before Promises this is what we used to do
+
+reateOrder(cart, function (orderId) {
+  // We are here passing the function
+  proceedToPayment(orderId);
+});
+
+// After Promise
+const promise = createOrder(cart);
+
+// Promise is object with some data value in it
+// {data: undefined}
+// After some time when we will get the data it will automatically fill the object
+// {data: orderDetails}
+
+// This callback will be called only when data is filled
+promise.then(function (orderId) {
+  // We are here attaching the function
+});
+
+// Initially Promise is in pending state and then it is fulfilled state
+// Or promise can be rejected also
+// Promise Objects are immutable in state
+
+const GITHUB_API = "https://api.github.com/users/SoniRe";
+
+const user = fetch(GITHUB_API);
+
+console.log(user);
+
+user.then(function (data) {
+  const json = data.json();
+
+  console.log(json);
+});
+
+// What is Promise ?
+// Promise is an object representing the eventual completion or failure  of asynchronous event
+
+const promise = createOrder(cart);
+
+promise
+  .then(function (orderId) {
+    return proceedToPayment(orderId);
+  })
+  .then(function (paymentInfo) {
+    return showOrderSummary(paymentInfo);
+  })
+  .then(function (orderummary) {
+    return updateWalletBalance(showOrderSummary);
+  });
+
+

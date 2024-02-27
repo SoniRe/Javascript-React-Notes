@@ -1,0 +1,53 @@
+//  What is async ?
+// async is keyword written before a function to make that function asynchronous
+
+// always returns a promise
+// if you return a value it will wrap it inside a Promise and return it
+// if its already a promise it will return as it is
+
+const p = new Promise(function (resolve, reject) {
+  resolve("Promise Resolved Value!!");
+});
+
+async function getData() {
+  return p;
+}
+
+const dataPromise = getData();
+
+console.log(dataPromise);
+
+dataPromise.then((res) => console.log(res));
+
+// New Way
+// You write await in front of promise also will only be used inside async function
+async function handlePromise() {
+
+  // It looks like JS Engine was waiting for promise to resolve
+  const val = await p;
+  console.log(val);
+}
+
+handlePromise();
+
+// Old Way
+function getData() {
+// JS Engine will not wait for promise to be resolved  
+p.then((res) => console.log(res));
+}
+
+getData();
+
+// fetch() => gives Response which has body with readable stream data [ Response.json() ] => jsonValue
+
+async function handlePromise() {
+  try {
+    const data = await fetch("https://api.github.com/users/SoniRe");
+    const json = await data.json();
+    console.log(json);
+  } catch (err) {
+    console.log(err.message);
+  }
+}
+
+handlePromise();

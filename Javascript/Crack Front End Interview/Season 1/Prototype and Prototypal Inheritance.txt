@@ -1,0 +1,40 @@
+Javascript attaches some properties(object) to your object, function 
+
+arr.__proto__ is similar to Array.prototype
+
+arr.__proto__.__proto__.__proto__ -> It is Prototype chain
+
+Prototype chain ends at null
+
+let arr = ["Akshay", "Aditya"];
+
+let object = {
+  name: "Aditya",
+  city: "Delhi",
+  getIntro: function () {
+    console.log(this.name + " from " + this.city);
+  },
+};
+
+function printHello() {
+  //
+}
+
+// if I do object2.name it goes to object2 and checks name if not found goes inside __proto__
+// if not found there also goes into its __proto
+let object2 = {
+  name: "Akshay",
+};
+
+// Never do it causes performance issues
+// Object2 Inheriting properties from Object
+object2.__proto__ = object;
+
+
+Function.prototype.myBind = function () {
+  console.log("Bind Method");
+};
+
+function fn() {}
+
+fn.myBind();

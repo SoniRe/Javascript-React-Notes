@@ -1,0 +1,12 @@
+function x() {
+  var i = 1;
+  setTimeout(function () {
+    console.log(i);
+  }, 1000);
+  console.log("Namaste Javascript");
+}
+
+Closure is formed inside function and it remembers i variable After that and setTimeout function takes this callback function
+and attaches it to a timer and it stores it somwehere and Javascript proceeds
+
+After the timer runs out Javascript again puts it in the call stack and runs it

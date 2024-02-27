@@ -1,0 +1,31 @@
+Event delegation is based on event bubbling. Event Delegation helps in increasing 
+performance of web page with lots of events
+
+Event Delegation it states that instead attaching event handlers to each event we should attach event 
+handler to parent element
+
+document.getElementById("category").addEventListener("click", (e) => {
+  console.log(e.target.id);
+
+  if (e.target.tagName == "LI") window.location.href = "/" + e.target.id;
+});
+
+
+// Behaviour Pattern
+document.getElementById("form").addEventListener("keyup", (e) => {
+  console.log(e);
+
+  if (e.target.dataset.uppercase !== undefined) {
+    e.target.value = e.target.value.toUpperCase();
+  }
+});
+
+// Benefits of Event Delegation
+1) Saves a lot of memory
+2) It also mitigates the risk of performance bottlenecks
+3) Less Code
+4) Efficient DOM Manipulation
+
+// Limitations 
+1) All the events are not bubbled up like blur(), focus(), windowresize()
+2) Stop propogation may cause a problem with event delegation

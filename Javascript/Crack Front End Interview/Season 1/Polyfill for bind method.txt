@@ -1,0 +1,41 @@
+Polyfill is basically a browser fallback.
+
+Suppose your browser doesn't have bind function and you have to write your own
+
+let name = {
+  firstName: "Aditya",
+  lastName: "Verma",
+};
+
+let printName = function (hometown, state) {
+  console.log(
+    this.firstName +
+      " " +
+      this.lastName +
+      " comes from " +
+      hometown +
+      " and " +
+      state
+  );
+};
+
+let printMyName = printName.bind(name, "Delhi");
+
+printMyName("New Delhi");
+
+// Basic implementation of myBind which behaves like bind method
+
+// Passing ...args will collect all variable into array
+Function.prototype.myBind = function (...args) {
+  // this points to printName
+  let obj = this;
+  let params = args.splice(1);
+
+  return function (...args2) {
+    obj.apply(args[0], [...params, ...args2]);
+  };
+};
+
+let printMyName2 = printName.myBind(name, "Delhi");
+
+printMyName2("New Delhi");

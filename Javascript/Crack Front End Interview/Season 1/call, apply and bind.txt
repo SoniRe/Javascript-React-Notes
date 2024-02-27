@@ -1,0 +1,35 @@
+// call() method
+
+let name = {
+  firstName: "Aditya",
+  lastName: "Verma",
+};
+
+let printFullName = function (hometown, state) {
+  console.log(
+    this.firstName + " " + this.lastName + " from " + hometown + " , " + state
+  );
+};
+
+printFullName.call(name, "Dwarka", "Delhi");
+
+let name2 = {
+  firstName: "Sachin",
+  lastName: "Tendulkar",
+};
+
+// Function borrowing - we can borrow function from other objects
+printFullName.call(name2, "Mumbai", "Maharashtra");
+
+
+// apply method - We pass arguements in array list
+
+// Function borrowing - we can borrow function from other objects
+printFullName.apply(name2, ["Mumbai", "Maharashtra"]);
+
+
+// bind() method - It doesn't directly call method but it returns the method 
+
+let printMyName = printFullName.bind(name, "Dwarka", "Delhi");
+
+printMyName();

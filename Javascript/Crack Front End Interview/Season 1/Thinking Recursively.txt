@@ -1,0 +1,58 @@
+// Solution 2 (Less Line Of Code)
+let finalObj = {};
+
+let magic = (obj, parent) => {
+  for (key in obj) {
+    if (typeof obj[key] === "object") {
+      magic(obj[key], parent + "_" + key);
+    } else {
+      finalObj[parent + "_" + key] = obj[key];
+    }
+  }
+};
+
+magic(user, "user");
+
+console.log(finalObj);
+
+
+// My Solution
+let finalObj = {};
+
+let magic = (obj) => {
+  let newObj = {};
+
+  for (key in obj) {
+    if (typeof obj[key] === "object") {
+      let keyName = key;
+
+      let filteredObj = magic(obj[key]);
+
+      for (innerKey in filteredObj) {
+        let name = keyName + "_" + innerKey;
+        newObj[name] = filteredObj[innerKey];
+      }
+    } else {
+      newObj[key] = obj[key];
+    }
+  }
+
+  return newObj;
+};
+
+let magicalFnc = function (magic, obj) {
+  let newObj = magic(obj);
+  let finalObj = {};
+
+  for (key in newObj) {
+    let keyName = key;
+
+    finalObj["user_" + keyName] = newObj[key];
+  }
+
+  return finalObj;
+};
+
+let finalObject = magicalFnc(magic, user);
+
+console.log(finalObject);

@@ -1,0 +1,44 @@
+When you pass a function in a function it is called callback function
+
+Due to callbacks we can do async tasks
+
+What is a Callback Function in Javascript
+setTimeout(function () {
+  console.log("Callback");
+}, 5000);
+
+function x(y) {
+  console.log("fnc is x");
+  y();
+}
+
+x(function y() {
+  console.log("fnc is y");
+});
+
+function y is called back after some time
+
+Blocking the main thread
+We should never block our main thread / call stack
+We should use async operation that takes time
+
+Event Listener
+
+function attachEventListeners() {
+  let count = 0;
+
+  document.getElementById("clickMe").addEventListener("click", function () {
+    console.log("Button Clicked", count);
+    count++;
+  });
+}
+
+attachEventListeners();
+
+Closure Demo with Event Listener
+
+Garbage collection and removeEventListener
+
+Why do we need to event listener
+event listeners are heavy it takes memory and makes closure so thats why we 
+remove event listener and it is garbage collected

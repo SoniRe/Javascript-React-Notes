@@ -1,0 +1,43 @@
+If any event occurs at child it will propogate to its parent also.
+
+Event Bubbling - In case of event bubbling child onClick() will be called then its parent and then its grandparent
+
+Event Capturing(Trickling) - The order is reverse then bubbling
+
+useCapture - true -> event capture
+	     false -> event bubbling
+
+let grandparent = document.getElementById("grandparent");
+let parent = document.getElementById("parent");
+let child = document.getElementById("child");
+
+e.stopPropogation() - It stops the propogation in bubbling or capturing
+
+// Event capturing example
+let grandparent = document.getElementById("grandparent");
+let parent = document.getElementById("parent");
+let child = document.getElementById("child");
+
+grandparent.addEventListener(
+  "click",
+  () => {
+    console.log("grandparent clicked");
+  },
+  true
+); // capturing
+
+parent.addEventListener(
+  "click",
+  () => {
+    console.log("parent clicked");
+  },
+  false
+); // bubbling
+
+child.addEventListener(
+  "click",
+  () => {
+    console.log("child clicked");
+  },
+  true
+); // capturing

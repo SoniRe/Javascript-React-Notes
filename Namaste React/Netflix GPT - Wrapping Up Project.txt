@@ -1,0 +1,47 @@
+3:10:00
+
+GPT - Using GPT for Web Application
+
+Chat GPT is a User Interface which uses GPT AI for results
+
+Website with multiple language options ranks high on SEO on google
+
+const lang: {
+    en: {
+        search: string;
+        placeholder: string;
+    };
+    hindi: {
+        search: string;
+        placeholder: string;
+    };
+    spanish: {
+        search: string;
+        placeholder: string;
+    };
+}
+
+const langKey = "en"
+
+Now to acces we cant use -> lang.langKey ❌
+we will use -> lang[langKey] ✅
+
+I am calling my OPEN AI from react which is client side and not backend.
+At client side secret key / API key can be leaked
+
+Best Parctice is to do through node server or Backend
+
+saving Key Safely in .env file
+REACT_APP_GEMINI_KEY="AIzaSyBLAva2RH8oFzD-ir5QMf-o6upOwy0dfFE";
+
+Used Memoization so that we dont API call as soon as we switch  in our App ✅
+
+Making it scalable, if there are 1000's of students they are navigating back and forth we are reducing API calls a lot making it scalable
+
+In Tailwind CSS
+By default it is mobile phone
+
+sm: (If device is bigger than small) Ex - Tab
+
+md: (If device is greater than medium) Ex - Desktop
+

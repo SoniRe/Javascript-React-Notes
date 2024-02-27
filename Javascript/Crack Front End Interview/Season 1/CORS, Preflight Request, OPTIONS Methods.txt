@@ -1,0 +1,22 @@
+CORS - CORS tells the browser whether one web app can share resources with another web app. It tells
+that you can share data with same origin by default
+
+Before CORS
+1) Not to different domain
+2) Not to sub domain
+3) Neither different ports
+4) Neither different protocols were allowed
+
+With CORS we can share data with it
+
+Preflight option call is made before actual call
+
+HTTP Headers
+Access-Control-Allow-Origin: * [Any domain outside this can access]
+Access-Control-Allow-Methods: GET
+
+Does CORS happen for all request ?
+No, Browser doesn't do it for simple requests
+
+To avoid CORS this
+Set header to all origins from server

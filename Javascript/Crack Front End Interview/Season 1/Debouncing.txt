@@ -1,0 +1,40 @@
+// Debouncing in Javascript
+let count = 0;
+
+const getData = () => {
+  // calls an API and gets data
+  console.log("Fetching data ....", count++);
+};
+
+// fn is getData
+// delay is time between two key presses
+
+const doSomeMagic = function (getData, delay) {
+  let timer;
+
+  return function () {
+    //Inside the returned function, it creates two variables: context, which is
+    //a reference to this, and args, which is a reference to the arguments passed
+    //to the function. These are saved so they can be used inside the setTimeout call
+
+    let context = this,
+      args = arguments;
+
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      getData.apply(context, args);
+    }, delay);
+  };
+};
+
+const betterFunction = doSomeMagic(getData, 300);
+
+// Now after every key press this is happening
+betterFunction()
+betterFunction()
+betterFunction()
+
+// and now since betterFunction() has created a closure with timer 
+// whenever it is called again it remembers the previous timer as its the only one 
+// which is being refered to

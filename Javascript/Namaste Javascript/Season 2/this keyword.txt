@@ -1,0 +1,86 @@
+"use strict";
+// this keyword works differently in strict vs non strict mode
+// By default it is in non-strict mode
+
+// this in global scope
+
+// this keyword in global scope represents global object which is
+//  window in case of browser
+//  global in case of node js
+
+console.log(this); // globalObject
+
+// this inside a function
+
+function x() {
+  console.log(this);
+}
+
+// this in strict mode - (this substituion)
+
+// According to this substitution if the value of this keyword is undefined or null
+// this will be replaced with global object
+// only in non-strict mode
+
+// this keyword value depends on how the function is called (window)
+
+x(); // Function called without any reference of an object it becomes undefined
+
+window.x(); //
+
+// this inside a object's method
+
+const student = {
+  firstName: "Aditya",
+  // Method - A function part of an object is a method
+
+  printFirstName: function () {
+    // Since it is called with obj as reference so this will point to obj
+    console.log(this.firstName);
+  },
+};
+
+student.printFirstName();
+
+const student2 = {
+  firstName: "Deepika",
+};
+
+// call apply bind methods (sharing methods)
+// call , apply and bind are used to share methods bwetween objects
+
+// Can share methods by overiding value of this keyword
+
+student.printFirstName.call(student2); // value of this becomes student2
+
+// this inside arrow function
+
+// Arrow function don't have thier own this keyword, they get their this from lexical environment
+const obj = {
+  a: 10,
+  x: () => {
+    console.log(this);
+  },
+};
+
+obj.x();
+
+// this inside nested arrow function
+
+const obj2 = {
+  a: 11,
+  x: function () {
+    // enclosing lexical context
+    const fn = () => {
+      console.log(this);
+    };
+
+    fn();
+  },
+};
+
+obj2.x();
+
+// this inside DOM
+
+// this will reference to HTML element

@@ -1,0 +1,21 @@
+-> Performance Optimization
+-> Limit Rate of Function Call
+
+Example 1 - A search bar on e-commerce website
+
+Debouncing
+Make API call if the time difference between 2 keypresses is > 300ms
+
+Throttling
+When you make an API call wait for a certain period of time after then you can
+make a function call
+
+In this scenario Debouncing is used
+
+Example 2 - Track How frequent User is Resizing Browser Window
+
+Both Debouncing and Throttling can be used here
+
+Example 3 - On Button click (Shooting Game)
+
+Throttling makes more sense

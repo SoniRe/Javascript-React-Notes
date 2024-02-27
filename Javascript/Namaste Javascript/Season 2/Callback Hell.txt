@@ -1,0 +1,28 @@
+const cart = ["shoes", "pants", "kurtas"];
+
+// Create Order
+// Proceed with Payment
+// Show Order Summary
+// Update the Wallet
+
+// When APIs are dependent on one another 
+// Unreadable and Unmaintainable
+// Callback Hell or Pyramid of Doom
+// Basically callback fnc inside callback fnc
+
+api.createOrder(cart, function () {
+
+  api.proceedToPayment(function () {
+  
+    api.showOrderSummary(function() {
+     
+      api.updateWallet()
+    
+    });
+  
+  });
+});
+
+
+// Inversion of Control - Loose the control over code
+// Basically we will have to give the control to another piece of code

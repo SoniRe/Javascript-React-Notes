@@ -1,0 +1,3 @@
+If callstack is Empty then only callback fnc from callback queue is called
+
+This is also known as concurrency model in Javascript

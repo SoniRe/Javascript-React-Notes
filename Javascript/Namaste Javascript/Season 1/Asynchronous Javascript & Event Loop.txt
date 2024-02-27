@@ -1,0 +1,20 @@
+Event loop keeps eyes on Call stack and Callback queue. If call stack is empty and there is 
+something in callback queue it wil put it inside call stack and remove it from callback queue
+
+Like Callback Queue there is also Microtask Queueu
+
+Microtask Queue - Higher Priority
+
+Interview Question
+
+ - What can come inside Microtask Queue ?
+   All callback fnc that come through promises will be put inside microtask queue
+
+ - Mutation Observer 
+   It keeps on checking if there is a mutation in DOM tree. If there is some mutation in DOM tree, it can 
+   call some callback fncs
+
+Callback queue is also called as Task queue
+
+Starvation of Callback queue - Callback fnc inside Micro task queue may create another callback which will create another callback. 
+			       This may go on forever so its called Starvation of callback queue

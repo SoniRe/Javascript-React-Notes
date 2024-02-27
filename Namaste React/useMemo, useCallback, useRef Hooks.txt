@@ -1,0 +1,22 @@
+useMemo() - Hook that can increase your application's performance
+
+useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
+
+React is very fast for small operations but it gets slow when doing high calculations
+
+  // Heavy Operation
+  // We memoise the heavy operation
+
+  const prime = useMemo(() => {
+    console.log("render", text);
+    return nthPrime(text);
+  }, [text]);
+
+useCallback() - Also helps in increasing applications performance
+
+useCallback is a React Hook that lets you cache a function definition between re-renders.
+
+useRef is a React Hook that lets you reference a value that’s not needed for rendering.
+
+It lets normal variable persist value after every re-render and not set it to default value
+again

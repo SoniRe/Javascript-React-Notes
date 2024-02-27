@@ -1,0 +1,74 @@
+A function which takes function as an arguement or return a function is a higher order function
+
+function x() {
+  console.log("Namaste");
+}
+
+function y(x) {
+  x();
+}
+
+// x is the callback function
+// y is higher order function
+
+y(x);
+
+const radius = [3, 1, 2, 4];
+
+function area(r) {
+  return r * r;
+}
+
+function diameter(r) {
+  return 2 * r;
+}
+
+// Here we are using functional programming
+const myOutput = function (radius, desiredFnc) {
+  const output = [];
+
+  for (let i = 0; i < radius.length; i++) {
+    output.push(desiredFnc(radius[i]));
+  }
+
+  return output;
+};
+
+console.log(myOutput(radius, area));
+console.log(myOutput(radius, diameter));
+
+// Following DRY Principle - Don't Repeat Yourself
+// Modularity, Reusability
+
+// Using Map
+
+const radius = [1, 2, 3, 4];
+
+function area(radius) {
+  return radius * radius;
+}
+
+const myOutput = radius.map(area);
+
+console.log(myOutput);
+
+// Using Array Protoype
+
+const radius = [1, 2, 3, 4];
+
+function area(radius) {
+  return radius * radius;
+}
+
+Array.prototype.calculate = function (logic) {
+  const output = [];
+
+  for (let i = 0; i < this.length; i++) {
+    output.push(logic(this[i]));
+  }
+  return output;
+};
+
+console.log(radius.calculate(area));
+
+

@@ -1,0 +1,20 @@
+- Requirement Clarifications (5 mins)
+  - Features to Build
+  - Tech Stack
+    -> Redux
+    -> Tailwind CSS
+    -> React Router DOM
+    -> Bundler
+    -> jest, react-testing library for testing
+
+- Planning Features
+
+reportWebVitals
+
+reportWebVitals allows developers to measure the performance of websites to optimize their product.
+The useReportWebVitals hook allows you to report Core Web Vitals, and can be used in combination with your
+ analytics service.
+
+useParams will be like /watch/12113 -> Here /1234 can be accessed using useParams()
+
+useSearchParams will be 

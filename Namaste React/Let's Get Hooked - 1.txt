@@ -1,0 +1,25 @@
+There is no recommended way for structuring files 
+
+You can use the .. operator as many times as you need to navigate up multiple levels in the file directory structure. For example, if you have a file called ./../../helpers.js in three levels up from the current directory, you can import it using the following code:
+
+import { add, subtract } from './../../helpers';
+
+1 File can have only 1 default export
+For multiple exports use Named export
+
+Two Types of export and import 
+1) Default Export and Import
+2) Named Export and Import
+
+- Default Export/Import
+
+  export default Component
+  import Component from "path"
+
+- Named Export/Import
+
+  export {Component}
+  import {Component} from "path"
+
+-> Can we have default export and Named export
+   Yes we can have default as well as Named export
